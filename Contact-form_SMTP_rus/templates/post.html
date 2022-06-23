@@ -1,0 +1,45 @@
+{% include "header.html" %}
+
+        <!-- Page Header-->
+        <!-- Если id поста равен N, то выводим картиночку в шапку другую -->
+        {% if selected_post["id"] == 1: %}
+            <header class="masthead" style="background-image: url('../static/assets/img/cactus.jpg')">
+        {% elif selected_post["id"] == 2: %}
+            <header class="masthead" style="background-image: url('../static/assets/img/boring.jpg')">
+        {% elif selected_post["id"] == 3: %}
+            <header class="masthead" style="background-image: url('../static/assets/img/intermittent.jpg')">
+        {% else %}
+            <header class="masthead" style="">
+        {% endif %}
+
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{ selected_post["title"]}} </h1>
+                            <h2 class="subheading">{{ selected_post["subtitle"]}}</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">Start Bootstrap</a>
+                                on August 24, 2021
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        {{ selected_post["body"] }}
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- Footer-->
+        {% include "footer.html" %}

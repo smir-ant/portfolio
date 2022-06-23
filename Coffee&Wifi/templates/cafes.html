@@ -1,0 +1,48 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}Restaurants{% endblock %}
+
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+
+      <table class="table">
+        <tbody>
+          {% for cafe in cafes: %}
+          <!-- для каждого кафе из массива -->
+            <tr>
+              {% for attribute in cafe: %}
+              <!-- для каждого значения внутри кафе -->
+                {% if attribute[0:4] == 'http': %}
+                <!-- если это ссылка -->
+                  <td><a href="{{attribute}}">Ссылка на карте</a></td>
+                  <!-- вставляем как ссылку -->
+                {% else %}
+                  <td>{{attribute}}</td>
+                  <!-- иначе просто вставляем текстом -->
+                {% endif %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+
+
+      <p><a href="/">Return to index page</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

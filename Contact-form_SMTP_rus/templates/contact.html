@@ -1,0 +1,72 @@
+{% include "header.html" %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('static/assets/img/contact-bg.jpg')">
+            <div class="overlay"></div>
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            {% if msg_sent: %}
+                                <h1>Харош</h1>
+                            {% else: %}
+                                <h1>Чирканёшь?</h1>
+                            {% endif %}
+                            <span class="subheading">Есть вопрос? Твое сообщение не будет прочитано).</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
+                        <div class="my-5">
+                            <form name="sentMessage" id="contactForm" action="{{ url_for('info_contact') }}" method="post" novalidate>
+                                <div class="form-floating" style="margin-bottom:1rem">
+                                    <label for="name">Погоняло</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Шугар Дэди..?" id="name" data-validation-required-message="Please enter your name.">
+                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                </div>
+                                <div class="form-floating" style="margin-bottom:1rem">
+                                    <label for="email">Мыло</label>
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="ронял? :) Шучу. Здесь почта." data-sb-validations="required,email" />
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                </div>
+                                <div class="form-floating" style="margin-bottom:1rem">
+                                    <label for="phone">Цифры</label>
+                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="Введёшь в меня?" data-sb-validations="required" />
+                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                </div>
+                                <div class="form-floating" style="margin-bottom:1rem">
+                                    <label for="message">Че хотел-то?</label>
+                                    <textarea class="form-control" id="message" name="message" placeholder="Будь ласков, не молчи" style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                </div>
+                                <br />
+
+                                <!-- в оригинале был id submitButton, но он чета анимешный и все ломает -->
+                                <button class="btn btn-primary text-uppercase" id="sendMessageButton" type="submit">Отправить</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer-->
+        {% include "footer.html" %}
+
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+

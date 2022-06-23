@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать рейтинг</title>
+</head>
+<body>
+    <form class="" action=" {{url_for('edit') }}" method="POST" novalidate>
+      <p>Название книги: {{ book.title }}</p>
+      <p>Текущий рейтинг: {{ book.rating }}</p>
+        <input hidden="hidden" value=" {{ book.id }}" name="id">
+      <input name="rating" placeholder="Новый рейтинг">
+      <button type="submit">Изменить рейтинг</button>
+    </form>
+</body>
+</html>
