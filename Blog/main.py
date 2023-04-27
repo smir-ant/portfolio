@@ -11,7 +11,11 @@ from flask_gravatar import Gravatar
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
+
+# ???
+app_context = app.app_context()
+app_context.push()
+
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -21,8 +25,11 @@ login_manager.init_app(app)
 
 
 # подключение БД
-app.config['SQLALCHEMY_DATABASE_URL'] = os.environ.get("DATABASE_URL",  "sqlite:///blog.db")
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.secret_key = os.urandom(24)
+db_path = os.path.join(os.path.dirname(__file__), 'app.db')
+db_uri = 'sqlite:///{}'.format(db_path)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
