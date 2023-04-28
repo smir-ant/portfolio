@@ -5,8 +5,13 @@
 <picture><img src="https://img.shields.io/badge/SQLite-fd5b4a?style=for-the-badge&logo=databricks&logoColor=white"></picture>
 <picture><img src="https://img.shields.io/badge/bootstrap-797979?style=for-the-badge&logo=addthis&logoColor=white"></picture>
 
-Полноценный сайт-блог с системой авторизации и создание/редактирование/удаление постов. Разделение прав на "user" и "admin". Также реализованы комментарии. Имеется валидация как встроенная <sub>(email)</sub>, так и кастомная <sub>(русские имя/фамилия)</sub>.
+Полноценный сайт-блог.
 
+- [x] Система авторизации;
+- [x] Создание/редактирование/удаление постов;
+- [x] Система комментариев <sub>(только для авторизированных пользователей)</sub>;
+- [x] Разделение прав на "user" и "admin"; 
+- [x] Валидация как встроенная <sub>(email)</sub>, так и кастомная <sub>(русские имя/фамилия)</sub>.
 
 
 <picture><img width="500" src="https://user-images.githubusercontent.com/84059957/234943239-5a9755ef-bee6-4aa0-90bf-10bdf46847a8.png"></picture>
@@ -54,6 +59,12 @@
 </picture>
 </details>
 
+<!-- ------------------------ -->
+<picture> <img width="100%" src="https://user-images.githubusercontent.com/84059957/202753342-fd2ddfa9-2939-43a2-976a-b19a9f32905f.png"> </picture>
 
+Идеи для улучшения:
+- [ ] Личный кабинет;
+- [ ] Создание суперпользователя, который мог бы изменять права(user, admin) другим;
+- [ ] Перенести на новые версии bootstrap, flask и sqlalchemy.
 
 
