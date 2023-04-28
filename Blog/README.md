@@ -1,5 +1,7 @@
 # Проект "Блог"
 
+###### Проект реализован 21.06.2022
+
 <picture><img src="https://img.shields.io/badge/Flask-025E8C?style=for-the-badge&logo=python&logoColor=white"></picture>
 <picture><img src="https://img.shields.io/badge/SQLALCHEMY-025E8C?style=for-the-badge&logo=python&logoColor=white"></picture>
 <picture><img src="https://img.shields.io/badge/SQLite-fd5b4a?style=for-the-badge&logo=databricks&logoColor=white"></picture>
