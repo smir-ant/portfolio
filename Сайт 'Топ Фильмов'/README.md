@@ -1,10 +1,13 @@
-# Проект "Топ Фильмов"
+FLASK, SQLITE, API
+
+# Сайт "Топ Фильмов"
 
 ###### Проект реализован 15.03.2022
 
 <picture><img src="https://img.shields.io/badge/Flask-025E8C?style=for-the-badge&logo=python&logoColor=white"></picture>
 <picture><img src="https://img.shields.io/badge/SQLALCHEMY-025E8C?style=for-the-badge&logo=python&logoColor=white"></picture>
 <picture><img src="https://img.shields.io/badge/SQLite-fd5b4a?style=for-the-badge&logo=databricks&logoColor=white"></picture>
+<picture><img src="https://img.shields.io/badge/Кинопоиск API-fd5b4a?style=for-the-badge&logo=databricks&logoColor=white"></picture>
 <picture><img src="https://img.shields.io/badge/bootstrap-797979?style=for-the-badge&logo=addthis&logoColor=white"></picture>
 <picture><img src="https://img.shields.io/badge/Jinja2-797979?style=for-the-badge&logo=addthis&logoColor=white"></picture>
 
