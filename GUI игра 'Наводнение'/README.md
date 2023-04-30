@@ -1,6 +1,6 @@
-# Игра "Наводнение"
+# Игра "Наводнение" (Flood It)
 
-###### Проект реализован 28.004.2023
+###### Проект реализован 28.04.2023
 
 <picture><img src="https://img.shields.io/badge/TKINTER-025E8C?style=for-the-badge&logo=python&logoColor=white"></picture>
 
