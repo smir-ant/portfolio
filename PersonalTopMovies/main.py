@@ -6,11 +6,17 @@ from wtforms import StringField, SubmitField, DecimalField
 from wtforms.validators import DataRequired, NumberRange
 import requests
 import sqlalchemy
+import os
+from dotenv import load_dotenv  # для .env
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app_context = app.app_context()
+app_context.push()
+app.config['SECRET_KEY'] = os.urandom(24)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///movies.db"
+db_path = os.path.join(os.path.dirname(__file__), 'app.db')
+db_uri = 'sqlite:///{}'.format(db_path)
+app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Bootstrap(app)
@@ -47,7 +53,9 @@ class AddMovie(FlaskForm):
 
 # https://kinopoisk.dev/docs
 kinopoisk_endpoint = 'https://api.kinopoisk.dev/movie'
-kinopoisk_token = 'SECRET'
+file_env_path = os.path.join(os.path.dirname(__file__), 'secrets.env')  # в этой же папке
+load_dotenv(file_env_path)  # подгружаем env
+kinopoisk_token = os.getenv('TOKEN')  # фиксируем TOKEN=...
 
 
 
