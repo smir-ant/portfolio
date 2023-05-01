@@ -43,7 +43,7 @@ while game_is_on:
     # успешное отбитие
     if ball.distance(r_paddle) <= 50 and ball.xcor() > 320 or ball.distance(l_paddle) <= 50 and ball.xcor() < -320:
         ball.bounce_x()  # мяч отскакивает
-        speed_control *= 0.8  # увеличиваем скорость на 20%
+        speed_control *= 0.85  # увеличиваем скорость на 15%
 
     # если мяч пропущен
     if ball.xcor() > 380 or ball.xcor() < -380:
