@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Блог</title>
+    <title>Обратная связь</title>
     <link rel="icon" type="image/x-icon" href="../static/assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -24,7 +24,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="{{url_for('home')}}">Блог</a>
+      <a class="navbar-brand" href="#">by Смирнов Антон</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Меню
         <i class="fas fa-bars"></i>
@@ -32,10 +32,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/about">О нас</a>
+            <a class="nav-link" href="#">О нас</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">➡️ Рабочая форма связи! ⬅️</a>
+            <a class="nav-link" href="/{{url_for('info_contact')}}">➡️ Рабочая форма связи! ⬅️</a>
           </li>
         </ul>
       </div>
