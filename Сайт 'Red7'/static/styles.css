@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
 :root {
     --main-bg-color: #FFE6DE;
     --second_bg_color: #f0f8ff;
+    --red_color: #FF6347;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
     height: 100%;
     width: 100%;
 }
@@ -27,7 +33,7 @@ html, body {
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     padding: 0.8rem 1rem;
     box-shadow: 0rem 0.4rem 2rem rgb(0, 0, 0, 0.3);  /* СдвигПраво СдвигВниз СилаРазмытия */
-    transition: all 0.5s ease;
+    /* transition: all 0.5s ease; */
 }
 
 .header_short {
@@ -38,16 +44,10 @@ html, body {
 }
 
 .header_full {
-    width: 96.5%;
-    height: 3.2rem;
     overflow: hidden;
-    overflow-wrap: break-word;
-	animation: animate 1s ease-in-out forwards;
-    /* animation: animateThis 1s ease-in-out; */
+	animation: animateO 0.8s ease-in-out forwards;
     margin: 0.6rem;
     position: absolute;
-    display: flex;
-    justify-content: space-between;
     
 }
 
@@ -55,14 +55,15 @@ html, body {
 /* Шапка. Логотип. */
 .header_logo {
     margin: 0;
-    color: #FF6347;
+    color: var(--red_color);
     background-color: var(--main-bg-color);
-    border: 1px #FF6347 solid;
+    border: 1px var(--red_color) solid;
     font-size: 2rem;
     display: inline-block;  /* Чтобы размер блока был по тексту, а не во весь экран */
     padding: 0.4rem 0.8rem;
     border-radius: 1rem;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 /* Шапка. Ссылка на автора. */
@@ -73,34 +74,152 @@ html, body {
 
 main {
     display: flex;
+    flex-direction: column;
     background-color: var(--main-bg-color);
     flex: 1 1 auto;
-    /* The above is shorthand for:
-    flex-grow: 1,
-    flex-shrink: 1,
-    flex-basis: auto
-    */
+    /* The above is shorthand for: */
+    /* flex-grow: 1, */
+    /* flex-shrink: 1, */
+    /* flex-basis: auto; */
+   
 }
 
 
-/* @keyframes animateThis {
-    0% {
-      width: 7%;
-    }
-    100% {
-      width: 96.5%;
-    }
-  } */
+section.table{
+    display: flex;
+    flex: 1 1 auto;
+    background-color: darkolivegreen;
+}
 
-  @keyframes animate {
+
+/* =============== Настройки руки (нижняя часть) =============== */
+section.hand {
+    background-color: darkcyan;
+    position: absolute;
+    bottom: 0;
+    width: 100%;  /* Размер поля с рукой */
+    height: 220px;  /* Размер поля с рукой */
+
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    white-space:nowrap;  /* Свойство, за счёт которого при ужатии, элементы будут не обрезаться а продолжаться вправо */
+}
+
+.cards {
+    width:fit-content; /* Чтобы у блока были размеры  по ширине*/
+    margin: 0 auto;  /* Отцентровка */ 
+}
+
+.card {
+    position: relative;
+    display: inline-flex;  /* Чтобы были в ряд */
+    height: 12rem;
+    width: 8rem;
+    margin: 0.8rem 0.3rem;
+    border-radius: 1rem;
+    box-shadow: 0.2rem 0.2rem 1rem rgb(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+
+/* =============== Настройки текста на картах =============== */
+.card-text{
+    color: white;
+    position: absolute;  /* Весь текст будет размещён ручками дальше */
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.card-text.rule, .up-num, .down-num {font-size: 1.2rem;}
+
+
+
+.main-num{
+    left: 0; right: 0; top: 0; bottom: 0;
+    height: fit-content; width: fit-content;
+    margin: auto;
+    font-size: 6rem;
+}
+
+.up-num{
+    left: 0.5rem;
+    top: 0.5rem;
+}
+
+.down-num{
+    right: 0.5rem;
+    bottom: 0.5rem;
+    transform: scale(-1, -1);  /* Зеркально отразить */ 
+}
+
+.rule.left{
+    left: 0.2rem;
+    writing-mode: vertical-lr;  /* Не понял разницы с writing-mode: vertical-rl; ну и ладно :) */
+    top:50%;
+    transform: scale(-1, -1) translateY(50%);  /* Отразить по горизонтали + вертикали + к центру */
+}
+
+.rule.right{
+    right: 0.2rem;
+    writing-mode: vertical-lr;  /* Не понял разницы с writing-mode: vertical-rl; ну и ладно :) */
+    top:50%;
+    transform: translateY(-50%);;
+}
+
+
+/* =============== ЦВЕТА КАРТ =============== */
+.card-color-red{
+    background-color: #ae2141;
+}
+
+.card-color-orange{
+    background-color: #c76131;
+}
+
+.card-color-yellow{
+    background-color: #c79330;
+}
+
+.card-color-green{
+    background-color: #639b44;
+}
+
+.card-color-lightblue{
+    background-color: #4199bf;
+}
+
+.card-color-blue{
+    background-color: #4a508e;
+}
+
+.card-color-purple{
+    background-color: #7e4288;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  @keyframes animateO {
     0% {
         height: 3.2rem;
-        width: 11rem;
+        width: 8.3rem;
     }
-    
+
     100% {
-        height: 3.2rem;
-        width: 96.5%;
+        height: 10.2rem;
+        width: 12rem;
 
     }
 }
