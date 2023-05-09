@@ -24,6 +24,8 @@ html, body {
     height: 100%;
 }
 
+
+/* ШАПКА */
 .header_appereance {
     background: rgba( 240, 248, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -53,6 +55,22 @@ html, body {
     
 }
 
+.header-menu{
+    margin: 0.8rem 0;
+}
+
+.header-menu a, .header-menu p {
+    text-decoration: none;  /* Это для a - отключение подчеркивания */
+    cursor: pointer;
+    color: #575d9e;
+    font-size: 1.2rem;
+    background-color: var(--second_bg_color);
+    border-radius: 1rem;
+    width: fit-content;
+    padding: 0.3rem 0.8rem;
+    margin: 0.7rem 0;
+}
+
 
 /* Шапка. Логотип. */
 .header_logo {
@@ -68,6 +86,39 @@ html, body {
     margin-bottom: 10px;
 }
 
+.player {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.player-btn {
+    padding: 0.6rem;
+    border-radius: 0.7rem;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    width: 2rem;
+    height: 2.4rem;
+}
+
+
+.player-btn.prev {
+    background-image: url("prev.svg");
+}
+.player-btn.next {
+    background-image: url("next.svg");
+}
+.player-btn.repeat {
+    background-image: url("repeat.svg");
+}
+.player-btn.play{
+    background-image: url("play.svg");
+}
+
+
+/* ❗️❗️❗️❗️❗️❗️ ПЕРЕНОС В MENU.HTML */
 /* Шапка. Ссылка на автора. */
 .header_author {
     text-decoration: none;
@@ -80,6 +131,11 @@ html, body {
     color:#3d47b3;
 }
 
+
+
+
+
+
 main {
     display: flex;
     flex-direction: column;
@@ -89,7 +145,6 @@ main {
     /* flex-grow: 1, */
     /* flex-shrink: 1, */
     /* flex-basis: auto; */
-   
 }
 
 
@@ -113,11 +168,13 @@ section.hand {
     white-space:nowrap;  /* Свойство, за счёт которого при ужатии, элементы будут не обрезаться а продолжаться вправо */
 }
 
+/* Отцентровка всех карт на руке */
 .cards {
     width:fit-content; /* Чтобы у блока были размеры  по ширине*/
     margin: 0 auto;  /* Отцентровка */ 
 }
 
+/* Настройка каждой из карт */
 .card {
     position: relative;
     display: inline-flex;  /* Чтобы были в ряд */
@@ -129,11 +186,13 @@ section.hand {
     cursor: pointer;
 }
 
+/* Плавное увеличение при наведении мышки */
 .card:hover {
     transform: scale(1.1);
     transition: all 0.3s ease;
 }
 
+/* Плавное уменьшение при отведении мышки */
 .card:not(:hover){
     transform: scale(1);
     transition: all 0.3s ease;
@@ -142,16 +201,16 @@ section.hand {
 
 
 /* =============== Настройки текста на картах =============== */
+/* Информация на карточке (5 значений) */
 .card-text{
+    font-size: 1.2rem;
+
     color: white;
     position: absolute;  /* Весь текст будет размещён ручками дальше */
     font-family: 'Roboto Condensed', sans-serif;
 }
 
-.card-text.rule, .up-num, .down-num {font-size: 1.2rem;}
-
-
-
+/* КАРТА. Центральное число. */
 .main-num{
     left: 0; right: 0; top: 0; bottom: 0;
     height: fit-content; width: fit-content;
@@ -159,17 +218,20 @@ section.hand {
     font-size: 6rem;
 }
 
+/* КАРТА. Верхнее число. */
 .up-num{
     left: 0.5rem;
     top: 0.5rem;
 }
 
+/* КАРТА. Нижнее число. */
 .down-num{
     right: 0.5rem;
     bottom: 0.5rem;
     transform: scale(-1, -1);  /* Зеркально отразить */ 
 }
 
+/* КАРТА. Левые правила. */
 .rule.left{
     left: 0.2rem;
     writing-mode: vertical-lr;  /* Не понял разницы с writing-mode: vertical-rl; ну и ладно :) */
@@ -177,6 +239,7 @@ section.hand {
     transform: scale(-1, -1) translateY(50%);  /* Отразить по горизонтали + вертикали + к центру */
 }
 
+/* КАРТА. Правые правила. */
 .rule.right{
     right: 0.2rem;
     writing-mode: vertical-lr;  /* Не понял разницы с writing-mode: vertical-rl; ну и ладно :) */
@@ -232,15 +295,14 @@ section.hand {
     }
 
     100% {
-        height: 10.2rem;
+        height: 12.5rem;
         width: 12rem;
-
     }
 }
 
 @keyframes animateC {
     0% {
-        height: 10.2rem;
+        height: 12.5rem;
         width: 12rem;
     }
     100% {

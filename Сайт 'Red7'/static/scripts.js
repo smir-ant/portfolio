@@ -24,8 +24,26 @@ headerLogos.forEach(logo => {
 // ====================== ЗАПОЛНЕНИЕ КАРТ ======================
 let cards = document.querySelectorAll(".card");  // каждая карта игрока (в руке)
 cards.forEach(card => {
-    console.log(card.className)
-    // Пилим класс: "card card-num-3 card-color-lightblue"
+
+    // Сперва накидываем 5 div'ов с классами для наполнения дальше в каждую из карт
+    let p_cardInfo = document.createElement('p');  // создаём p
+    p_cardInfo.classList = ('card-text main-num');  // главное число
+    card.append(p_cardInfo);  // добавляем <p> в <div class='card'>
+    p_cardInfo = document.createElement('p');
+    p_cardInfo.classList = ('card-text up-num');  // верхнее число
+    card.append(p_cardInfo);
+    p_cardInfo = document.createElement('p');
+    p_cardInfo.classList = ('card-text down-num');  // нижнее число
+    card.append(p_cardInfo);
+    p_cardInfo = document.createElement('p');
+    p_cardInfo.classList = ('card-text rule left');  // левое правило
+    card.append(p_cardInfo);
+    p_cardInfo = document.createElement('p');
+    p_cardInfo.classList = ('card-text rule right');  // правое правило
+    card.append(p_cardInfo);
+
+
+    // Пилим класс: "card card-num-3 card-color-lightblue" на цвет и номинал
     const cardColor = card.className.split(' ')[2].split('-')[2]; // например: red 
     const cardValue = card.className.split(' ')[1].split('-')[2]  // например: 2
 
