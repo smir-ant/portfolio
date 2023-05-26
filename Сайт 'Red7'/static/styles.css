@@ -4,6 +4,7 @@
     --main-bg-color: #FFE6DE;
     --second_bg_color: #f0f8ff;
     --red_color: #FF6347;
+    --hand-size: 220px;
 }
 
 * {
@@ -43,7 +44,7 @@ html, body {
     padding: 0.8rem 0.8rem;
     position: absolute;
     animation: animateC 0.4s ease-in-out forwards;
-
+    z-index: 1;
 }
 
 .header_full {
@@ -52,7 +53,7 @@ html, body {
     overflow: hidden;  /* Чтобы при раскрытии всё что не в кадре не отображалось */
     position: absolute;
 	animation: animateO 0.4s ease-in-out forwards;
-    
+    z-index: 1;
 }
 
 .header-menu{
@@ -86,13 +87,13 @@ html, body {
     margin-bottom: 10px;
 }
 
-.player {
+.music {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.player-btn {
+.music-btn {
     padding: 0.6rem;
     border-radius: 0.7rem;
     border: none;
@@ -104,18 +105,19 @@ html, body {
 }
 
 
-.player-btn.prev {
+.music-btn.prev {
     background-image: url("prev.svg");
 }
-.player-btn.next {
+.music-btn.next {
     background-image: url("next.svg");
 }
-.player-btn.repeat {
+.music-btn.repeat {
     background-image: url("repeat.svg");
 }
-.player-btn.play{
+.music-btn.play{
     background-image: url("play.svg");
 }
+
 
 
 /* ❗️❗️❗️❗️❗️❗️ ПЕРЕНОС В MENU.HTML */
@@ -150,9 +152,63 @@ main {
 
 section.table{
     display: flex;
-    flex: 1 1 auto;
     background-color: darkolivegreen;
+    position: relative;
+    height: calc(100vh - var(--hand-size));  /* Экран - рука */ 
+    
 }
+
+.player {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Настройка карты у игроков */
+.player img {   
+    width: 7rem;  /* Изменяем ширину */
+    height:fit-content;  /* Высота сама устанавливается */
+    border-radius: 1rem;
+    box-shadow: 0.2rem 0.2rem 1rem rgb(0, 0, 0, 0.4);
+}
+
+.player p {
+    font-size: 4.5rem;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.player.top{
+    margin: 1rem auto;
+    
+}
+
+.player.left, .player.right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 1rem;
+}
+
+.player.left{
+    left:0
+}
+
+.player.right{
+    right: 0;
+}
+
+.player.left p, .player.right p{
+    margin: auto 1rem;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /* =============== Настройки руки (нижняя часть) =============== */
@@ -161,7 +217,7 @@ section.hand {
     position: absolute;
     bottom: 0;
     width: 100%;  /* Размер поля с рукой */
-    height: 220px;  /* Размер поля с рукой */
+    height: var(--hand-size);  /* Размер поля с рукой */
 
     overflow-x: scroll;
     scroll-behavior: smooth;
